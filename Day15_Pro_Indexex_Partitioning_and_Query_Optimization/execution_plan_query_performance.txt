@@ -1,0 +1,35 @@
+SELECT * FROM payment
+
+SELECT
+(SELECT AVG(amount)
+ FROM payment p2
+ WHERE p2.rental_id=p1.rental_id)
+FROM payment p1
+
+
+CREATE INDEX index_rental_id_payment
+ON payment
+(rental_id)
+
+
+DROP INDEX index_rental_id_payment
+
+
+SELECT rental_id FROM payment
+WHERE rental_id BETWEEN 1 AND 22
+
+SELECT * FROM payment
+LEFT JOIN customer
+ON customer.customer_id=payment.customer_id
+
+
+
+
+SELECT * FROM payment
+LEFT JOIN customer
+ON customer.customer_id=payment.customer_id
+WHERE payment.customer_id BETWEEN 4 and 50
+ORDER BY 1
+LIMIT 100
+
+
